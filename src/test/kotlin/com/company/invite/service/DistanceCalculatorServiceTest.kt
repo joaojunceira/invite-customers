@@ -1,4 +1,4 @@
-package com.company.invite
+package com.company.invite.service
 
 import com.company.invite.factory.Factory
 import com.company.invite.model.Coordinates
@@ -6,7 +6,7 @@ import com.company.invite.service.DistanceCalculatorService
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-class DistanceServiceTest {
+class DistanceCalculatorServiceTest {
     private val distanceCalculatorCalculatorService: DistanceCalculatorService = Factory.getDistanceCalculatorService()
 
     @Test

@@ -1,8 +1,7 @@
-package com.company.invite
+package com.company.invite.service
 
 import com.company.invite.factory.Factory
 import com.company.invite.model.Coordinates
-import com.company.invite.service.ProcessorService
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
