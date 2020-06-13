@@ -2,7 +2,6 @@ package com.company.invite.service
 
 import com.company.invite.factory.Factory
 import com.company.invite.model.Coordinates
-import com.company.invite.service.DistanceCalculatorService
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
@@ -13,7 +12,7 @@ class DistanceCalculatorServiceTest {
     fun `distance when both coordinates are the same should return zero`() {
         val coordinates =
             Coordinates(latitude = 52.986375, longitude = -6.043701)
-        val distance = distanceCalculatorCalculatorService.calculateInKm(coordinates, coordinates)
+        val distance = distanceCalculatorCalculatorService.calculate(coordinates, coordinates)
         assertEquals(0.0, distance)
     }
 
@@ -27,7 +26,7 @@ class DistanceCalculatorServiceTest {
             latitude = 53.3408891,
             longitude = -6.2504718
         )
-        val distance = distanceCalculatorCalculatorService.calculateInKm(origin, destination)
+        val distance = distanceCalculatorCalculatorService.calculate(origin, destination)
         assertEquals(0.034979502829466616, distance)
     }
 
@@ -41,7 +40,7 @@ class DistanceCalculatorServiceTest {
             latitude = 52.23789234942133,
             longitude = 21.011352539062504
         )
-        val distance = distanceCalculatorCalculatorService.calculateInKm(origin, destination)
+        val distance = distanceCalculatorCalculatorService.calculate(origin, destination)
         assertEquals(1826.9438829342037, distance)
     }
 }

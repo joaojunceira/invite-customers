@@ -1,10 +1,10 @@
 package com.company.invite
 
 import com.company.invite.factory.Factory
-import com.company.invite.mvc.RequestModel
+import com.company.invite.view.RequestView
 
 fun main(args: Array<String>) {
-    val requestModel = RequestModel(
+    val requestModel = RequestView(
         originFile = args[0],
         outputFile = args[1],
         destinationLatitude = args[2].toDouble(),

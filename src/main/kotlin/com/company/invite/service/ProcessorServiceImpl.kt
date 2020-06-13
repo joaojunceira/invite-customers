@@ -1,8 +1,10 @@
 package com.company.invite.service
 
+import com.company.invite.exception.DomainException
 import com.company.invite.factory.Factory
 import com.company.invite.model.Coordinates
 import com.company.invite.model.Customer
+import com.fasterxml.jackson.databind.exc.MismatchedInputException
 import java.io.InputStream
 import kotlin.streams.asSequence
 
@@ -18,12 +20,17 @@ class ProcessorServiceImpl : ProcessorService {
     }
 
     private fun isInRange(customer: Customer, destination: Coordinates, range: Double) =
-        distance.calculateInKm(
+        distance.calculate(
             Coordinates(
                 customer.longitude,
                 customer.latitude
             ), destination) <= range
 
-    private fun mapToCustomer(line: String): Customer =
-        objectMapper.readValue(line, Customer::class.java)
+    private fun mapToCustomer(line: String): Customer {
+        return try {
+            objectMapper.readValue(line, Customer::class.java)
+        } catch (e: MismatchedInputException) {
+            throw DomainException("Invalid Entry: $line")
+        }
+    }
 }

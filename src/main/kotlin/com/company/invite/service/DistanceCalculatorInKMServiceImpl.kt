@@ -5,10 +5,10 @@ import kotlin.math.acos
 import kotlin.math.cos
 import kotlin.math.sin
 
-class DistanceCalculatorServiceImpl : DistanceCalculatorService {
+class DistanceCalculatorInKMServiceImpl : DistanceCalculatorService {
     private val earthRadiusInKm = 6371
 
-    override fun calculateInKm(origin: Coordinates, destination: Coordinates): Double {
+    override fun calculate(origin: Coordinates, destination: Coordinates): Double {
         val distanceRadians = calculateDistanceRadians(origin.toRadians(), destination.toRadians())
         return distanceRadians * earthRadiusInKm
     }

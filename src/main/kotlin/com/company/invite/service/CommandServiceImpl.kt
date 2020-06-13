@@ -15,7 +15,7 @@ class CommandServiceImpl: CommandService {
             fileService.writeFile(destinationFilePath, customers)
             "File Processed Successfully with ${customers.size} entries"
         } catch (e: Exception) {
-            e.message.orEmpty()
+            "Processing aborted with error: ${e.message.orEmpty()}"
         }
     }
 }
