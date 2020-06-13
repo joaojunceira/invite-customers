@@ -16,7 +16,11 @@ Install the JDK and Gradle
 Solution is Command Line App structured into a Model-View-Controller Architecture.
 
 |-----------------------|
+
 | Model-View-Controller |
+
 |-----------------------|
+
 |       Services        |
+
 |-----------------------|
