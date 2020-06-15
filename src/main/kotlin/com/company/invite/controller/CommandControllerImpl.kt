@@ -2,6 +2,7 @@ package com.company.invite.controller
 
 import com.company.invite.factory.Factory
 import com.company.invite.model.Coordinates
+import com.company.invite.util.InputValidators.validateDouble
 import com.company.invite.view.MessageView
 import com.company.invite.view.RequestView
 
@@ -14,9 +15,10 @@ class CommandControllerImpl: CommandController {
                 originFilePath = requestView.originFile,
                 destinationFilePath = requestView.outputFile,
                 destinationCoordinates = Coordinates(
-                    requestView.destinationLongitude, requestView.destinationLatitude
+                    validateDouble(requestView.destinationLongitude),
+                    validateDouble(requestView.destinationLatitude)
                 ),
-                range = requestView.range
+                range = validateDouble(requestView.range)
             )
         )
     }

@@ -7,14 +7,17 @@ import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
 import java.io.InputStream
+import java.util.logging.Logger
 
 class FileServiceImpl: FileService {
+    private val logger = Logger.getLogger(FileServiceImpl::javaClass.name)
     private val objectMapper = Factory.getObjectMapper()
 
     override fun readFile(path: String): InputStream {
         return try {
             FileInputStream(path)
         } catch (e: Exception) {
+            logger.warning { e.message }
             throw DomainException("File not found for path: $path")
         }
     }
@@ -30,7 +33,7 @@ class FileServiceImpl: FileService {
                 }
             }
         } catch (e: Exception) {
-            println(e)
+            logger.warning { e.message }
             throw DomainException("Failed to write in Output file")
         }
 
